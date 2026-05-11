@@ -1,0 +1,84 @@
+﻿<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ORFANATO SANTA LUMEN</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <div class="crt-overlay"></div>
+
+  <div class="monitor flicker">
+    <div class="header">
+      ORFASAN-LU v1.0.4 - TERMINAL DE ACESSO REMOTO<br />
+      STATUS DA CONEXÃO: <span style="color: yellow;">INSTÁVEL</span><br />
+      DATA: 17/07/2001
+    </div>
+
+    <div id="screen-home">
+      <p>BEM-VINDA, ADMINISTRADORA.</p>
+      <p>AVISO: Todo o acesso a este terminal é monitorado </p>
+      <nav>
+        <button class="btn" onclick="navTo('screen-login-a')">&gt; [A] ACESSAR REGISTROS DE INTERNOS (BLOQUEADO)</button>
+        <button class="btn" onclick="navTo('screen-rules')">&gt; [B] PROTOCOLOS DE DISCIPLINA</button>
+        <button class="btn" onclick="navTo('screen-login')">&gt; [C] SETOR DE SEGURANÇA MÁXIMA (BLOQUEADO)</button>
+      </nav>
+    </div>
+
+    <div id="screen-login-a" class="hidden">
+      <h3>AUTENTICAÇÃO NECESSÁRIA - REGISTROS</h3>
+      <p>INTRODUZA A PALAVRA-PASSE DE ACESSO AOS ARQUIVOS:</p>
+      <span>&gt; </span><input type="password" id="pass-input-a" class="terminal-input" autofocus />
+      <div id="login-error-a" class="hidden" style="color: red; margin-top: 10px;">ACESSO NEGADO. TENTATIVA REGISTRADA.</div>
+      <button class="btn" onclick="navTo('screen-home')" style="margin-top:20px; border:none;">[ CANCELAR ]</button>
+    </div>
+
+    <div id="screen-files" class="hidden">
+      <h3>REGISTROS DE ADMISSÃO</h3>
+      <div class="file-card">
+        <strong>SUJEITO 004 - "Yara Hayashi"</strong><br />
+        <strong>STATUS:</strong> <span style="color: rgb(192, 153, 23);">DESAPARECIDA</span><br />
+        <strong>NOTAS:</strong> Visivelmente debilitada e com sinais claros de desnorteamento. Última vez vista na mansão Leone.
+      </div>
+      <div class="file-card">
+        <strong>SUJEITO 008 - "Dominique Leone"</strong><br />
+        <strong>STATUS:</strong> <span style="color: red;">MORTA</span><br />
+        <strong>NOTAS:</strong> Era uma bela e perfeita voluntária pra equipe.
+      </div>
+      <button class="btn" onclick="navTo('screen-home')" style="margin-top:20px;">&lt; VOLTAR</button>
+    </div>
+
+    <div id="screen-rules" class="hidden">
+      <h3>REGRAS DE CONVIVÊNCIA</h3>
+      <ol>
+        <li>Não deixar as novas crianças sozinhas.</li>
+        <li>Respeitem os horários.</li>
+        <li>Qualquer tentativa de fuga, contate diretamente a diretora </li>
+        <li>Não deixe as crianças chegarem ao <span class="censored">█████</span></li>
+        <li>O <span class="censored">TRATAMENTO ESPECIAL</span> é um privilégio, não uma punição.</li>
+      </ol>
+      <button class="btn" onclick="navTo('screen-home')">&lt; VOLTAR</button>
+    </div>
+
+    <div id="screen-login" class="hidden">
+      <h3>AUTENTICAÇÃO NECESSÁRIA</h3>
+      <p>INTRODUZA A PALAVRA-PASSE DE SEGURANÇA:</p>
+      <span>&gt; </span><input type="password" id="pass-input" class="terminal-input" />
+      <div id="login-error" class="hidden" style="color: red; margin-top: 10px;">ACESSO NEGADO. O DIRETOR FOI NOTIFICADO.</div>
+      <button class="btn" onclick="navTo('screen-home')" style="margin-top:20px; border:none;">[ CANCELAR ]</button>
+    </div>
+
+    <div id="screen-secret" class="hidden">
+      <h3 style="color: red;">!!! ARQUIVO CORROMPIDO !!!</h3>
+      <p>Eles sabem que você esteve aqui.</p>
+      <div class="file-card" style="border-color: red;">
+        <strong>AVISO FINAL:</strong> O orfanato não é para as crianças. É uma cobertura para algo muito maior.
+      </div>
+      <button class="btn" onclick="location.reload()">REINICIAR SISTEMA</button>
+    </div>
+  </div>
+
+  <script src="js/script.js"></script>
+</body>
+</html>
